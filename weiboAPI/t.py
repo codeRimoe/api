@@ -5,6 +5,8 @@ import sys
 import weibo
 import webbrowser
 import json
+reload(sys)                                                  #使用UTF-8输出
+sys.setdefaultencoding('utf-8')
 
 APP_KEY = 'xxx'             #将引号中的xxx替换为你的APP_KEY，保留引号
 MY_APP_SECRET = 'yyy'       #将引号中的yyy替换为你的APP_SECRET，保留引号
@@ -34,22 +36,13 @@ client.set_access_token(access_token, expires_in)            #
                                                              #调用API
 results = client.statuses__public_timeline()['statuses']     #
 
-print "-----------the results is : "
-length = len(statuses)
-print length
-            #输出了部分信息  
+print "-----------the results is : "                         #输出信息
+length = len(results)                                        #确定获取的信息条数
 for i in range(0,length):
-    print '昵称：'+statuses[i]['user']['screen_name']+' 来自：'+statuses[i]['user']['location']
-    print '时间：'+statuses[i]['created_at']+' 位置：'+statuses[i][geo]
-    print '来源：'+statuses[i]['source']
-    print '微博：'+statuses[i]['text']
-    print '转自：'+statuses[i]['retweeted_status']
-    print '图片：'+statuses[i]['thumbnall_pic']
-    print '转发：'+statuses[i]['reposts_count']+' 评论：'+statuses[i]['comments_count']+' 喜欢：'+statuses[i]['attitudes_count']
-
-for st in get_statuses:
-        print st.text
-json_obg = json.dumps(get_results)
-print type(json_obg)
-
+    print '昵称：'+results[i]['user']['screen_name']+' 来自：'+results[i]['user']['location']
+    print '时间：'+results[i]['created_at']
+    print '来源：'+results[i]['source']
+    print '微博：'+results[i]['text']
+    print '转发：'+str(results[i]['reposts_count'])+' 评论：'+str(results[i]['comments_count'])+' 喜欢：'+str(results[i]['attitudes_count'])
+    print
 print "-----------all--------------"
