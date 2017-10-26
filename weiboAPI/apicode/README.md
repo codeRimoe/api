@@ -1,3 +1,17 @@
+# ABOUT
+
+Here are 2 demo about using weibo API (Python).
+Coded in PEP-8 style.
+
+* demo1_pub_timeline : get public time line
+* demo2_comment      : make a comment via api
+
+---
+
+# WeiboAPI
+
+---
+
 # snspy 
 
 SNSPY is a stand-alone Python script which provides
